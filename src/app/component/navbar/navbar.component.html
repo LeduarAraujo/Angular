@@ -1,0 +1,76 @@
+<div class="navbar-fixed">
+  <nav>
+    <div class="nav-wrapper purple darken-1">
+      <a routerLink="/" class="brand-logo center">{{ logo }}</a>
+
+      <ul id="nav-mobile" class="left hide-on-med-and-down">
+        <li>
+          <a [routerLink]="rotas.home" routerLinkActive="active">Início</a>
+        </li>
+      </ul>
+
+      <ul id="nav-mobile" class="left hide-on-med-and-down" *ngIf="!isConected">
+        <li>
+          <a [routerLink]="rotas.about" routerLinkActive="active">Sobre</a>
+        </li>
+        <li>
+          <a [routerLink]="rotas.contato" routerLinkActive="active">Contato</a>
+        </li>
+        <li>
+          <a [routerLink]="rotas.parceiros" routerLinkActive="active">Parceiros</a>
+        </li>
+      </ul>
+
+
+
+      <ul id="nav-mobile" class="left hide-on-med-and-down" *ngIf="isConected">
+        <li>
+          <a class="dropdown-trigger" data-target="dropdown1">Marcar</a>
+
+          <!-- Dropdown Structure -->
+          <ul id="dropdown1" class="dropdown-content">
+            <li><a href="#!">one</a></li>
+            <li><a href="#!">two</a></li>
+            <li class="divider" tabindex="-1"></li>
+            <li><a href="#!">three</a></li>
+            <li><a href="#!"><i class="material-icons">view_module</i>four</a></li>
+            <li><a href="#!"><i class="material-icons">cloud</i>five</a></li>
+          </ul>
+        </li>
+        <li>
+          <a [routerLink]="rotas.parceiros" routerLinkActive="active">Consultar</a>
+        </li>
+      </ul>
+
+
+
+      <div class="right hide-on-med-and-down" *ngIf="!isConected">
+        <ul id="nav-login">
+          <li>
+            <a id="login" [routerLink]="rotas.login" routerLinkActive="active">Entrar</a>
+          </li>
+          <li>
+            <a id="cadastro" [routerLink]="rotas.cadastro" routerLinkActive="active">Cadastrar</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="right hide-on-med-and-down" *ngIf="isConected">
+        <ul id="nav-config">
+          <li>
+            <a>
+              <i class="material-icons">settings</i>
+            </a>
+          </li>
+          <li>
+            <a (click)="deslogar()">
+              <i class="material-icons">exit_to_app</i>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+
+    </div>
+  </nav>
+</div>
